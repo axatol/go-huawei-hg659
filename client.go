@@ -20,9 +20,9 @@ type Client struct {
 
 type ClientOption func(*Client)
 
-func WithHTTPTransport(transport *http.Transport) ClientOption {
+func WithHTTPRoundTriper(rt http.RoundTripper) ClientOption {
 	return func(c *Client) {
-		c.client.Transport = transport
+		c.client.Transport = rt
 	}
 }
 
